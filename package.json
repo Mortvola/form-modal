@@ -1,24 +1,24 @@
 {
   "name": "@mortvola/forms",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "exit",
-    "build": "webpack --config-name form-modal --env production",
-    "build-dev": "webpack --config-name form-modal"
+    "build": "webpack --config-name forms --env production",
+    "build-dev": "webpack --config-name forms"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mortvola/form-modal.git"
+    "url": "git+https://github.com/Mortvola/forms.git"
   },
   "author": "Richard Shields",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mortvola/form-modal/issues"
+    "url": "https://github.com/Mortvola/forms/issues"
   },
-  "homepage": "https://github.com/Mortvola/form-modal#readme",
+  "homepage": "https://github.com/Mortvola/forms#readme",
   "publishConfig": {
     "@mortvola:registry": "https://npm.pkg.github.com"
   },

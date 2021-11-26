@@ -71,5 +71,5 @@ const config = (name, env) => ({
 });
 
 module.exports = [
-  (env) => config('form-modal', env),
+  (env) => config('forms', env),
 ];
