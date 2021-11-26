@@ -1,4 +1,4 @@
-name: useModal
+name: forms
 
 on:
   release:
