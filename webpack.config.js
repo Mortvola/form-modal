@@ -17,6 +17,7 @@ const config = (name, env) => ({
     'react': 'commonjs react',
     'react-dom': 'commonjs react-dom',
     'react-bootstrap': 'commonjs react-bootstrap',
+    'formik': 'commonjs formik',
   },
   module: {
     rules: [
