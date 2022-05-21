@@ -13,7 +13,7 @@ type PropsType<V, T, E> = {
   autoComplete?: string,
   onChange?: (event: ChangeEvent<E>, props: FieldProps<V, T>) => void,
   onBlur?: (event: ChangeEvent<E>, props: FieldProps<V, T>) => void,
-  children?: ReactNode,
+  children?: ReactNode | ((props: FieldProps) => ReactNode),
 };
 
 function FormField<V = unknown, T = unknown, E = HTMLInputElement>({
