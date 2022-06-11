@@ -27,6 +27,7 @@ function FormField<V = unknown, T = unknown, E = HTMLInputElement>({
   onChange,
   onBlur,
   children,
+  style,
 }: PropsType<V, T, E>): ReactElement {
   const [field, meta] = useField<V>(name)
   const form = useFormikContext<T>();
