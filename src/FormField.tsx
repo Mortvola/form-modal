@@ -14,6 +14,7 @@ type PropsType<V, T, E> = {
   onChange?: (event: ChangeEvent<E>, props: FieldProps<V, T>) => void,
   onBlur?: (event: ChangeEvent<E>, props: FieldProps<V, T>) => void,
   children?: ReactNode | ((props: FieldProps) => ReactNode),
+  style?: React.CSSProperties,
 };
 
 function FormField<V = unknown, T = unknown, E = HTMLInputElement>({
@@ -45,7 +46,7 @@ function FormField<V = unknown, T = unknown, E = HTMLInputElement>({
   }
 
   return (
-    <label style={{ userSelect: 'none', marginTop: '0.5rem' }}>
+    <label style={{ userSelect: 'none', marginTop: '0.5rem', ...style }}>
       {label}
       <Field
         as={as}
