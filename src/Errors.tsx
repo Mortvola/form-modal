@@ -1,15 +1,14 @@
 import React, { CSSProperties, ReactElement } from 'react';
 import PropTypes from 'prop-types';
 
-export interface Error {
+export interface FormError {
   field: string;
   message: string;
-  rule: string;
 }
 
 export function setFormErrors(
   formikSetErrors: (errors: Record<string, string>) => void,
-  errorResponse: Error[],
+  errorResponse: FormError[],
 ): void {
   const errors: Record<string, string> = {};
 
