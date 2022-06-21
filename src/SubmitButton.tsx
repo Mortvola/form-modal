@@ -7,6 +7,7 @@ type PropsType = {
   label: string,
   submitLabel: string,
   form?: string,
+  className?: string,
 }
 
 const SubmitButton: React.FC<PropsType> = ({
@@ -14,12 +15,14 @@ const SubmitButton: React.FC<PropsType> = ({
   label,
   submitLabel,
   form,
+  className,
 }) => (
   <Button
     variant="primary"
     type="submit"
     disabled={isSubmitting}
     form={form}
+    className={className}
   >
     {
       isSubmitting
