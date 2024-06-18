@@ -4,17 +4,20 @@ import { Modal, Button } from 'react-bootstrap';
 import DeleteButton from './DeleteButton';
 import Errors from './Errors';
 import styles from './Footer.module.css';
+import SubmitButton from './SubmitButton';
 
 type PropsType<T> = {
   errors?: string[],
   onDelete?: ((context: FormikContextType<T>) => void) | null,
   setShow: (show: boolean) => void,
+  isSubitting?: boolean,
 }
 
 function Footer<T>({
   errors,
   onDelete,
   setShow,
+  isSubitting = false,
 }: PropsType<T>): ReactElement {
   const handleClick = () => {
     if (setShow) {
@@ -30,7 +33,7 @@ function Footer<T>({
         }
         <div />
         <Button variant="secondary" onClick={handleClick}>Cancel</Button>
-        <Button variant="primary" type="submit">Save</Button>
+        <SubmitButton isSubmitting={isSubitting} label="Save" submitLabel="Saving" />
       </Modal.Footer>
       {
         errors
