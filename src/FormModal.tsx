@@ -44,18 +44,16 @@ function FormModal<ValueType extends FormikValues>({
       onSubmit={handleSubmit}
     >
       <Form id={formId} className="scrollable-form">
-        <ModalDialog>
-          <Header title={title} />
-          <ModalBody>
-            {children}
-          </ModalBody>
-          <Footer<ValueType>
-            setShow={setShow}
-            onDelete={onDelete}
-            errors={errors}
-            isSubitting={isSubmitting}
-          />
-        </ModalDialog>
+        <Header title={title} />
+        <ModalBody>
+          {children}
+        </ModalBody>
+        <Footer<ValueType>
+          setShow={setShow}
+          onDelete={onDelete}
+          errors={errors}
+          isSubitting={isSubmitting}
+        />
       </Form>
     </Formik>
   );
