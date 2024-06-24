@@ -1,8 +1,9 @@
 import React, { ReactElement, ReactNode } from 'react';
 import {
   Formik, Form, FormikContextType, FormikHelpers, FormikErrors, FormikValues,
+  FormikProps,
 } from 'formik';
-import { ModalBody, ModalDialog } from 'react-bootstrap';
+import { ModalBody } from 'react-bootstrap';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,7 +11,7 @@ type PropsType<T> = {
   initialValues: T,
   title: string,
   formId?: string,
-  children?: ReactNode,
+  children?: ReactNode | ((formikValues: FormikProps<T>) => ReactNode),
   setShow: (show: boolean) => void,
   onSubmit: ((values: T, bag: FormikHelpers<T>) => Promise<void>),
   validate: ((values: T) => FormikErrors<T>),
@@ -43,18 +44,26 @@ function FormModal<ValueType extends FormikValues>({
       validate={validate}
       onSubmit={handleSubmit}
     >
-      <Form id={formId} className="scrollable-form">
-        <Header title={title} />
-        <ModalBody>
-          {children}
-        </ModalBody>
-        <Footer<ValueType>
-          setShow={setShow}
-          onDelete={onDelete}
-          errors={errors}
-          isSubitting={isSubmitting}
-        />
-      </Form>
+      {
+        (formikValues) => (
+          <Form id={formId} className="scrollable-form">
+            <Header title={title} />
+            <ModalBody>
+              {
+                typeof children === 'function'
+                  ? children(formikValues)
+                  : children
+              }
+            </ModalBody>
+            <Footer<ValueType>
+              setShow={setShow}
+              onDelete={onDelete}
+              errors={errors}
+              isSubitting={isSubmitting}
+            />
+          </Form>            
+        )
+      }
     </Formik>
   );
 }
