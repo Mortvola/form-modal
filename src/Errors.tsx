@@ -1,5 +1,4 @@
 import React, { CSSProperties, ReactElement } from 'react';
-import PropTypes from 'prop-types';
 
 export interface FormError {
   field: string;
